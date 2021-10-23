@@ -1,0 +1,44 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.6'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.simononboard'
+version = '0.0.1-SNAPSHOT'
+
+compileJava {
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter') {
+        exclude module: "logback-classic"
+    }
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    implementation 'org.apache.avro:avro:1.8.2'
+    implementation 'org.apache.parquet:parquet-hadoop-bundle:1.10.0'
+    implementation 'org.apache.parquet:parquet-avro:1.10.0'
+    implementation 'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
+    implementation 'org.codehaus.jackson:jackson-core-asl:1.9.13'
+    implementation 'org.apache.hadoop:hadoop-common:3.1.2'
+    implementation group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.29'
+
+}
+
+test {
+    useJUnitPlatform()
+}

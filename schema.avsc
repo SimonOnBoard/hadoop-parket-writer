@@ -1,0 +1,16 @@
+{
+  "type":	"record",
+  "name":	"testFile",
+  "doc":	"test records",
+  "fields":
+    [{
+      "name":	"id",
+      "type":	"int"
+
+    },
+    {
+      "name":	"empName",
+      "type":	"string"
+    }
+  ]
+}
